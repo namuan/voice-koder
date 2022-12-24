@@ -8,6 +8,8 @@ Usage:
 import logging
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 
+from koder.main import main
+
 
 def setup_logging(verbosity):
     logging_level = logging.WARNING
@@ -33,16 +35,11 @@ def parse_args():
         "-v",
         "--verbose",
         action="count",
-        default=0,
+        default=1,
         dest="verbose",
         help="Increase verbosity of logging output",
     )
     return parser.parse_args()
-
-
-def main(args):
-    logging.debug(f"This is a debug log message: {args.verbose}")
-    logging.info(f"This is an info log message: {args.verbose}")
 
 
 if __name__ == "__main__":
