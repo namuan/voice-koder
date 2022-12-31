@@ -2,3 +2,5 @@ SpeechRecognition
 pyaudio
 pyautogui
 git+https://github.com/openai/whisper.git
+nltk
+rich

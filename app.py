@@ -1,32 +1,18 @@
 #!/usr/bin/env python3
 """
+Control IntellJ IDEA with voice commands
 
 Usage:
 ./app.py -h
+
+Run with -v for verbose logging
+./app.py -vv
 """
 
-import logging
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 
-from koder.main import main
-
-
-def setup_logging(verbosity):
-    logging_level = logging.WARNING
-    if verbosity == 1:
-        logging_level = logging.INFO
-    elif verbosity >= 2:
-        logging_level = logging.DEBUG
-
-    logging.basicConfig(
-        handlers=[
-            logging.StreamHandler(),
-        ],
-        format="%(asctime)s - %(filename)s:%(lineno)d - %(message)s",
-        datefmt="%Y-%m-%d %H:%M:%S",
-        level=logging_level,
-    )
-    logging.captureWarnings(capture=True)
+from koder import sr_wrapper
+from koder.common_utils import setup_logging
 
 
 def parse_args():
@@ -35,7 +21,7 @@ def parse_args():
         "-v",
         "--verbose",
         action="count",
-        default=1,
+        default=0,
         dest="verbose",
         help="Increase verbosity of logging output",
     )
@@ -45,4 +31,4 @@ def parse_args():
 if __name__ == "__main__":
     args = parse_args()
     setup_logging(args.verbose)
-    main(args)
+    sr_wrapper.main(args)
