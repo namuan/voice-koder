@@ -1,9 +1,11 @@
 # Voice Koder
 
-Control IntellJ IDEA with voice commands
+> Control IntellJ IDEA with voice commands
 
-Uses OpenAI Whisper to convert speech to text.
-And then feed spoken text into pyautogui to control the IDE.
+Uses **OpenAI Whisper** to convert speech to text.
+And then feed text into **pyautogui** to control the **IntelliJ IDE**.
+
+![](docs/app-icon.png)
 
 ## Setup
 
